@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+    color: white;
+}
+
+header {
+    padding: 10px;
+    margin: 20px;
+    background-color: white;
+    border: 1px dashed black;
+    height: 70px;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+    background-color: orange;
+    float: left;
+    position: relative;
+    left: 10px;
+}
+
+#menu {
+    height: 50px;
+    width: 50px;
+    background-color: pink;
+    float: right;
+    position: relative;
+    right: 10px;
+}
+
+div {
+    display: inline;
+}
+
+.container {
+    width: 80vw;
+    height: 80vh;
+    background-color: tomato;
+    border: 2px solid black;
+    margin: 0 auto;
+    position: relative;
+}
+
+h3 {
+    margin: 0;
+    position: absolute;
+    color: black;
+}
+
+h3:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+h3:nth-child(2) {
+    top: 0;
+    right: 0;
+}
+h3:nth-child(3) {
+    bottom: 0;
+    left: 0;
+}
+h3:nth-child(4) {
+    bottom: 0;
+    right: 0;
+}
+.main {
+    
+}
+img {
+    width: 300px;
+    position: fixed;
+    top: 300px;
+    left: 300px;
+    z-index: 1;
+}
