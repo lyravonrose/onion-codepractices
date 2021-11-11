@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+}
+
+.container {
+    display: flex;
+    padding: 10px;
+}
+
+.first,
+.second,
+.third,
+.fourth {
+    display: flex;
+    height: 200px;
+    width: 200px;
+    margin: 3px;
+}
+#first,
+#second,
+#third,
+#fourth {
+    height: 100px;
+    width: 100px;
+}
+
+.first {
+    background-color: dimgrey;
+    justify-content: right;
+}
+.second {
+    background-color: black;
+    justify-content: right;
+    align-items: flex-end;
+}
+.third {
+    background-color: blue;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+.fourth {
+    background-color: purple;
+}
+#first {
+    background-color: orange;
+}
+#second {
+    background-color: yellow;
+}
+#third {
+    background-color: green;
+}
+#fourth {
+    background-color: pink;
+}
