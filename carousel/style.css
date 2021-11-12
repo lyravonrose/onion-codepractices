@@ -28,3 +28,31 @@
     transition-property: transform;
     transition-duration: 2s;
 }
+
+.dot {
+    width: 25px;
+    height: 25px;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    border: solid 3px black;
+    margin: 10px;
+}
+
+#dots {
+    position: absolute;
+    top: 500px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.dot.on {
+    background-color: black;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.dot:hover {
+    cursor: pointer;
+}
