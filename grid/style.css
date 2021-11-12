@@ -1,0 +1,50 @@
+* {
+    margin: 0px;
+}
+
+.grid {
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 200px;
+    grid-template-columns: 200px 200px 200px 200px;
+}
+
+#first,
+#second,
+#third,
+#fourth {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    margin: 1px;
+}
+
+#first {
+    background-color: dimgrey;
+}
+#second {
+    background-color: black;
+}
+#third {
+    background-color: blue;
+}
+#fourth {
+    background-color: purple;
+}
+#one {
+    background-color: orange;
+    grid-column-end: -1;
+}
+#two {
+    background-color: yellow;
+    grid-column-start: 2;
+    grid-row-end: -1;
+}
+
+#three {
+    background-color: green;
+    grid-row: 2;
+}
+#four {
+    background-color: pink;
+}
