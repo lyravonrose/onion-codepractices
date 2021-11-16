@@ -1,0 +1,12 @@
+* {
+    background-color: thistle;
+}
+body {
+    display: grid;
+    justify-content: center;
+}
+
+input,
+.results {
+    cursor: pointer;
+}
