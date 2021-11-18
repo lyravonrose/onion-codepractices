@@ -1,5 +1,5 @@
 * {
-    background-color: thistle;
+    background-color: rgb(250, 225, 250);
 }
 body {
     display: grid;
@@ -9,4 +9,15 @@ body {
 input,
 .results {
     cursor: pointer;
+}
+
+h1 {
+    font-family: monospace;
+    font-style: oblique;
+    box-shadow: rgb(206, 64, 64) 14px 14px;
+}
+input {
+    background-color: rgb(197, 252, 252);
+    color: rgb(206, 64, 64);
+    box-shadow: rgb(164, 240, 236) 10px 10px 10px;
 }
