@@ -10,6 +10,8 @@
         // );
         // now we know what the user wants results for
         //time to talk to spotify api (aka our proxy) to get some results
+        var nextUrl;
+
         $.ajax({
             url: "https://spicedify.herokuapp.com/spotify",
             method: "GET",
@@ -57,10 +59,34 @@
                         response.items[i].name +
                         "</span></a></div>";
                 }
+
                 // put the html we generated on screen
                 $("#results-container").html(myHtml);
                 // understand if there is more results to get
                 // and IF so, replace the spotify url with our proxy value
+
+                nextUrl =
+                    response.next &&
+                    response.next.replace(
+                        "https://api.spotify.com/v1/search",
+                        "https://spicedify.herokuapp.com/spotify"
+                    );
+
+                function checkScrollPs() {
+                    var hasScrolledToBottom =
+                        $(window).height() + $(document).scrollTop() ===
+                        $(document).height();
+
+                    if (hasScrolledToBottom === true) {
+                        $("#more-btn").css({ visibility: "visible" });
+                    } else {
+                        $("#more-btn").css({ visibility: "hidden" });
+                    }
+                }
+
+                $(document).on("scroll", function () {
+                    checkScrollPs();
+                });
 
                 $("#more-btn").on("click", function () {
                     $.ajax({
@@ -71,7 +97,7 @@
                             type: albumOrArtist,
                         },
                         success: function (data) {
-                            console.log("response from the API", data);
+                            console.log("Response from the API", data);
                             var response = data.artists || data.albums;
 
                             var myHtml = "";
@@ -108,7 +134,9 @@
                                     "</span></a></div>";
                             }
 
-                            var nextUrl =
+                            $("#results-container").append(myHtml);
+
+                            nextUrl =
                                 response.next &&
                                 response.next.replace(
                                     "api.spotify.com/v1/search",
