@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+.pane {
+    top: 0;
+    left: 0;
+    position: relative;
+    height: 400px;
+    width: 600px;
+    z-index: 0;
+}
+
+.pane1 {
+    z-index: 1;
+    overflow: hidden;
+    position: absolute;
+    background-color: crimson;
+    height: 400px;
+    width: 600px;
+}
+
+img {
+    height: 400px;
+    width: 600px;
+    z-index: 2;
+    position: absolute;
+}
+
+.pane2 {
+    height: 400px;
+    width: 600px;
+    position: absolute;
+    overflow: hidden;
+}
+.bar {
+    position: absolute;
+    left: 300px;
+    height: 400px;
+    width: 10px;
+    z-index: 2;
+    background-color: black;
+    cursor: pointer;
+}

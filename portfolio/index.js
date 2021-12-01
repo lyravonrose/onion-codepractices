@@ -1,8 +1,10 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const { generateOverviewHtml } = require("./generateOverview");
-console.log("generateOverviewHtml:", generateOverviewHtml);
+const pid = require("process");
+const { clu } = require("./clu");
+// const { generateOverviewHtml } = require("./generateOverview");
+// console.log("generateOverviewHtml:", generateOverviewHtml);
 const contentType = {
     ".css": "text/css",
     ".js": "text/javascript",
@@ -19,12 +21,28 @@ const contentType = {
 http.createServer((req, res) => {
     req.on("error", (err) => console.log("err on request:", err));
     res.on("error", (err) => console.log("err on response:", err));
+
     //we only want to allow get request
     if (req.method != "GET") {
         console.log("not a GET request, not okay 😤");
         res.statusCode = 405; //method not allowed
         return res.end();
     }
+
+    if (req.url === "/") {
+        return clu(req, res);
+    }
+    // {
+    //         res.statusCode = 200;
+    //         res.setHeader("content-type", "text/html");
+    //         res.end(`<!doctype http>
+    // <p>The url is ${req.url}
+    // <p>The process id ${process.pid}`);
+    //         setTimeout(() => {
+    //             throw new Error("Testing Cluster");
+    //         }, 2000);
+    //     }
+    // return generateOverviewHtml(req, res);
     // understanding where my user is trying to go
     const filePath = path.normalize(__dirname + "/projects" + req.url);
     // we normalize so that we are capable to understand if
@@ -50,6 +68,9 @@ http.createServer((req, res) => {
                 // user should be served the index.html
                 res.setHeader("Content-Type", "text/html");
                 //# 1 create readstream
+
+                console.log("! filepath", filePath);
+                console.log("req.url", req.url);
                 const readstreamIndexHtml = fs.createReadStream(
                     filePath + "index.html"
                 );
@@ -62,6 +83,7 @@ http.createServer((req, res) => {
                     return res.end();
                 });
             } else {
+                console.log("else 1");
                 // redirect the user to the same req.url, but add
                 // a slash to it. If you forgot how to redirect
                 // check back with the http-request-listner
