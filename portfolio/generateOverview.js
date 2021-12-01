@@ -22,5 +22,3 @@ module.exports.generateOverviewHtml = (req, res) => {
         res.end();
     });
 };
-
-//readdir

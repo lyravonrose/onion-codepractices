@@ -2,8 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const pid = require("process");
-const { clu } = require("./clu");
-// const { generateOverviewHtml } = require("./generateOverview");
+const { generateOverviewHtml } = require("./generateOverview");
 // console.log("generateOverviewHtml:", generateOverviewHtml);
 const contentType = {
     ".css": "text/css",
@@ -30,19 +29,9 @@ http.createServer((req, res) => {
     }
 
     if (req.url === "/") {
-        return clu(req, res);
+        return generateOverviewHtml(req, res);
     }
-    // {
-    //         res.statusCode = 200;
-    //         res.setHeader("content-type", "text/html");
-    //         res.end(`<!doctype http>
-    // <p>The url is ${req.url}
-    // <p>The process id ${process.pid}`);
-    //         setTimeout(() => {
-    //             throw new Error("Testing Cluster");
-    //         }, 2000);
-    //     }
-    // return generateOverviewHtml(req, res);
+
     // understanding where my user is trying to go
     const filePath = path.normalize(__dirname + "/projects" + req.url);
     // we normalize so that we are capable to understand if
@@ -124,4 +113,6 @@ http.createServer((req, res) => {
             });
         }
     });
-}).listen(8080, () => console.log("portfolio server listening!✨✨✨"));
+}).listen(8080, () =>
+    console.log(`pid ${process.pid} server listening!✨✨✨`)
+);
