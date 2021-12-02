@@ -1,0 +1,163 @@
+.slot {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    box-shadow: rgb(95, 84, 87) 14px 14px 14px;
+}
+
+.hole {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 50px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-self: center;
+    transform: translate(-40px, -40px);
+}
+.board {
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.player1 {
+    background-color: rgba(109, 240, 233, 0.4);
+    animation: fadeInPlayer1 0.5s;
+}
+
+.player2 {
+    background-color: rgba(236, 117, 236, 0.4);
+    animation: fadeInPlayer2 0.5s;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.snow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.snow div:nth-child(1) {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgba(185, 21, 49, 0.4);
+    animation: animate 15s linear infinite;
+    animation-duration: 5s;
+}
+.snow div:nth-child(2) {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: rgba(10, 2, 4, 0.3);
+    animation: animate 15s linear infinite;
+    animation-duration: 7s;
+    left: 10%;
+}
+.snow div:nth-child(3) {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgba(145, 151, 56, 0.3);
+    animation: animate 15s linear infinite;
+    animation-duration: 8s;
+    left: 15%;
+}
+.snow div:nth-child(4) {
+    position: absolute;
+
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgba(167, 177, 26, 0.4);
+    animation: animate 15s linear infinite;
+    animation-duration: 5s;
+    left: 20%;
+}
+.snow div:nth-child(5) {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: rgba(85, 183, 207, 0.4);
+    animation: animate 15s linear infinite;
+    animation-duration: 5s;
+    left: 90%;
+}
+.snow div:nth-child(6) {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgba(194, 171, 219, 0.3);
+    animation: animate 15s linear infinite;
+    animation-duration: 6s;
+    left: 80%;
+}
+.snow div:nth-child(7) {
+    position: absolute;
+    display: block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgba(184, 133, 241, 0.3);
+    animation: animate 15s linear infinite;
+    animation-duration: 4s;
+    left: 85%;
+}
+.snow div:nth-child(8) {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgba(99, 241, 218, 0.4);
+    animation: animate 15s linear infinite;
+    animation-duration: 7s;
+    left: 95%;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(500deg);
+    }
+}
+
+@keyframes fadeInPlayer1 {
+    0% {
+        background-color: rgb(46, 83, 78);
+    }
+    100% {
+        background-color: rgba(109, 240, 233, 0.4);
+    }
+}
+
+@keyframes fadeInPlayer2 {
+    0% {
+        background-color: rgb(199, 155, 155);
+    }
+    100% {
+        background-color: rgba(236, 117, 236, 0.4);
+    }
+}

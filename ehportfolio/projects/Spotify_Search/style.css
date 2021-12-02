@@ -1,0 +1,12 @@
+* {
+    background-color: rgb(250, 210, 217);
+}
+
+#more-btn,
+#submit-btn {
+    background-color: rgb(104, 233, 183);
+}
+
+#more-btn {
+    visibility: hidden;
+}

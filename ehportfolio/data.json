@@ -1,0 +1,5 @@
+[
+    { "name": "Connect 4", "directory": "connect_4" },
+    { "name": "Spotify Search", "directory": "Spotify_Search" },
+    { "name": "Carousel", "directory": "carousel" }
+]
