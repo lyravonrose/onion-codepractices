@@ -2,9 +2,25 @@ const PORT = 8080;
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
+// const bodyParser = require("body-parser");
+const basicAuth = require("basic-auth");
+const auth = function (req, res, next) {
+    const creds = basicAuth(req);
+    if (!creds || creds.name != "emperor" || creds.pass != "penguin") {
+        res.setHeader(
+            "WWW-Authenticate",
+            'Basic realm="Enter your credentials to see this stuff."'
+        );
+        res.sendStatus(401);
+    } else {
+        next();
+    }
+};
 
 app.use("/projects", express.static(`${__dirname}/projects`));
-app.use(cookieParser());
+app.use("/projects", auth);
+
+app.use(cookieParser({ maxAge: 1000 * 60 * 60 * 24 * 14 }));
 
 app.use((req, res, next) => {
     console.log(`${req.method}\n${req.url}`);
@@ -44,7 +60,7 @@ app.post("/cookies", (req, res) => {
     const data = req.body;
     console.log("In POST/ cookies", req.body);
     if (data) {
-        res.cookie("Hello 🍪");
+        res.cookie("Hello 🍪", "/cookeisx");
         res.redirect(`${req.url}`);
     } else {
         res.send(`please accept ${data} 🤡`);
