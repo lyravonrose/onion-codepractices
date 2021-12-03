@@ -7,10 +7,17 @@
         <title>Express Handlebars Portfolio</title>
     </head>
     <body>
-        <header>
-            <h1>Lyra's Website</h1>
-        </header>
-        {{{body}}}
-        <footer>© Lyra Von Rose</footer>
+        <div class="container">
+            <header>
+                <h1>Lyra's Website</h1>
+            </header>
+            {{{body}}}
+            <footer>© Lyra Von Rose. 2021</footer>
+        </div>
+        <div class="snow">
+            {{#snowflakes}}
+                <div></div>
+            {{/snowflakes}}
+        </div>
     </body>
 </html>

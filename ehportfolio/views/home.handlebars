@@ -2,6 +2,10 @@
 <h2>These are my finished projects:</h2>
 <ul>
     {{#myProjects}}
-        <li>{{name}}</li>
+        <li>
+            <a href="{{directory}}">{{name}}</a>
+            <br />
+            <img src="/{{directory}}/screenshot.png" />
+        </li>
     {{/myProjects}}
 </ul>
