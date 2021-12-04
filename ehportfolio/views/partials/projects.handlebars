@@ -1,0 +1,10 @@
+<ul>
+    {{#myProjects}}
+        <li>
+            <a target="_blank" href="{{directory}}">{{toUpperCase name}}</a>
+            <br />
+            <img src="/{{directory}}/screenshot.png" />
+            {{#if description}}<p>{{description}}</p>{{/if}}
+        </li>
+    {{/myProjects}}
+</ul>
