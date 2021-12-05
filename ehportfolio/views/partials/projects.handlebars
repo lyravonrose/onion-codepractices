@@ -1,10 +1,26 @@
-<ul>
-    {{#myProjects}}
+{{#if home}}
+    <ul>
         <li>
-            <a target="_blank" href="{{directory}}">{{toUpperCase name}}</a>
-            <br />
-            <img src="/{{directory}}/screenshot.png" />
-            {{#if description}}<p>{{description}}</p>{{/if}}
+            {{#myProjects}}
+                <br />
+                <a target="_blank" href="/projects/{{directory}}">{{name}}</a>
+                <br />
+                <img src="/{{directory}}/screenshot.png" />
+            {{/myProjects}}
         </li>
-    {{/myProjects}}
-</ul>
+    </ul>
+{{/if}}
+{{#if description}}
+    {{#proj}}
+        <a target="_blank" href="{{directory}}">{{name}}</a>
+        <div id="large">
+            <img src="/{{directory}}/screenshotLarge.png" />
+        </div>
+        <p>{{description}}</p>
+    {{/proj}}
+    {{#myProjects}}
+        <a
+            target="_blank"
+            href="/projects/{{directory}}"
+        >{{name}}</a>{{/myProjects}}
+{{/if}}

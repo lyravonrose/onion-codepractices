@@ -2,8 +2,11 @@ const express = require("express");
 const app = express();
 const hb = require("express-handlebars");
 const myProjects = require("./data.json");
+// const listProjects = require("./data.json");
 const { create } = require("express-handlebars");
+
 console.log("myProjects🕊:", myProjects);
+
 //create an instance of express-handlebars
 const hbs = create({
     helpers: {
@@ -28,16 +31,14 @@ app.get("/", (req, res) => {
         guest: "You 🧸✨",
         myProjects,
         snowflakes: [0, 0, 0, 0, 0, 0, 0, 0],
-        helpers: {
-            toUpperCase(text) {
-                return text.toUpperCase();
-            },
-        },
         // helpers: {
-        //     ...app.locals.helpers, //this ensures that we don't lose any helpers that we defined globally with app.locals
-        //     stessImportance(str) {
-        //         return str + "!!!!";
+        //     toUpperCase(text) {
+        //         return text.toUpperCase();
         //     },
+        // },
+        helpers: {
+            ...app.locals.helpers, //this ensures that we don't lose any helpers that we defined globally with app.locals
+        },
         // },
     });
 });
@@ -49,11 +50,18 @@ app.get("/about", (req, res) => {
     });
 });
 
-app.get("/description", (req, res) => {
-    res.render("description", {
-        layout: "main",
-        myProjects,
-    });
+app.get("/projects/:project", (req, res) => {
+    const requestedProject = req.params.project;
+    const proj = myProjects.find((item) => item.directory == requestedProject);
+    if (!proj) {
+        return res.sendStatus(404);
+    } else {
+        res.render("description", {
+            layout: "main",
+            proj,
+            myProjects,
+        });
+    }
 });
 
 app.listen(8080, () => console.log("Server listening 🌸🍜"));
