@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.ticker {
+    overflow: hidden;
+    border: 1px dotted black;
+    height: 1.5em;
+    width: 100%;
+    position: relative;
+}
+
+.headlines {
+    position: absolute;
+    border: 2px solid crimson;
+    white-space: nowrap;
+    left: 85%;
+    top: 5%;
+}
+
+.headlines a {
+    padding-right: 40px;
+}
