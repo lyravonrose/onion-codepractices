@@ -1,0 +1,51 @@
+body {
+    background-color: pink;
+    box-sizing: border-box;
+}
+
+#box {
+    background-color: indianred;
+    width: 200px;
+    height: 200px;
+    transition-duration: 2s;
+}
+
+#move {
+    background-color: indigo;
+}
+
+#moveback {
+    background-color: antiquewhite;
+}
+
+#round {
+    background-color: thistle;
+    border-radius: 50%;
+}
+
+#square {
+    background-color: lightseagreen;
+}
+
+#move,
+#moveback,
+#round,
+#square {
+    display: inline-block;
+    margin: 15px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.on {
+    transition-property: transform;
+    transition-duration: 2s;
+    transform: translateX(200%);
+}
+
+.make-round {
+    transition-property: border-radius;
+    border-radius: 50%;
+    transition-duration: 3s;
+}

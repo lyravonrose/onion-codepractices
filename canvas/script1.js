@@ -1,6 +1,6 @@
 (function () {
-    var can = document.querySelector("canvas");
-    var ctx = can.getContext("2d");
+    var can1 = document.getElementById("can1");
+    var ctx = can1.getContext("2d");
 
     ctx.beginPath();
     ctx.lineWidth = 1;
@@ -35,4 +35,13 @@
 
     // //right leg
     repeatBody(100, 250, 165, 300);
+})();
+
+(function () {
+    var can2 = document.getElementById("can2");
+    var ctx = can2.getContext("2d");
+
+    can2.addEventListener("keydown", function () {
+        ctx.clearRect(0, 0, 300, 400);
+    });
 })();

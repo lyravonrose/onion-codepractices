@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+}
+.container {
+    padding: 10px;
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: row;
+    /* row is default behaviour*/
+    /* /*flex-direction is to decide the main axis; in this case, horizontal */
+    justify-content: space-evenly;
+    align-items: flex-end;
+    /*align items is to decide cross axis */
+    flex-wrap: wrap;
+}
+
+.item {
+    background-color: darkseagreen;
+    padding: 20px;
+    margin: 20px;
+    color: darkslategray;
+    font-size: 40px;
+}
+
+.item:nth-of-type(2) {
+    flex-grow: 2;
+}
+
+.first {
+    font-size: 200px;
+    order: -1;
+    flex-grow: 1;
+}
+
+.third {
+    align-self: flex-end;
+    order: -2;
+    flex-grow: 3;
+    flex-basis: 300px;
+    flex-shrink: 0;
+}

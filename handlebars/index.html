@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Handlebars</title>
+    </head>
+    <body>
+        <h1>Templating Rocks</h1>
+        <div class="onion-info"></div>
+
+        <script id="onion" type="text/x-handlebars-template">
+            {{#cohorts}}
+            <div class="card">
+                <h2>Hello, {{name}}</h2>
+                <h3>nickname: {{nickname}}</h3>
+                <h3>Favourite Food:</h3>
+                <ul>
+                    {{#favouriteFood}}
+                    <li>{{.}}</li>
+                    {{/favouriteFood}}
+                </ul>
+                <h3>Skills: </h3>
+                <ol>
+                    {{#each skills}}
+                    <li>{{@key}}:{{this}}</li>
+                    {{/each}}
+                </ol>
+                <h3>Single array item:{{favouriteFood.[1]}}</h3>
+                <h3>Single object property: {{skills.javascript}}</h3>
+            </div>
+            {{/cohorts}}
+        </script>
+        <script type="application/json"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

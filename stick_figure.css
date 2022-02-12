@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+#head {
+    width: 120px;
+    height: 120px;
+    border: 3px black dotted;
+    border-radius: 50%;
+}
+
+.arm {
+    position: absolute;
+    top: 160px;
+    left: 65px;
+    width: 160px;
+    height: 3px;
+    background-color: tomato;
+    transform: rotate(15deg);
+    transform-origin: left;
+}

@@ -1,0 +1,24 @@
+* {
+    background-color: lavender;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+    grid-area: 10px 2fr 2fr;
+}
+
+textarea {
+    box-shadow: 15px 15px 15px thistle;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: antiquewhite;
+    color: darkgrey;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+button {
+    padding: 10px;
+    border-radius: 70%;
+}

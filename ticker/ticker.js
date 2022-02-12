@@ -1,3 +1,12 @@
+$.get("ticker.json", { limit: 20 }, function (links) {
+    var headlines = JSON.parse(headlines);
+    for (var i = 0; i < links.length; i++) {
+        $("body").html(
+            "<a href=" + links[i].url + ">" + links[i].text + "</a>"
+        );
+    }
+});
+
 (function () {
     // var container = document.getElementsByClassName("headlines")[0];
     // var links = container.getElementsByTagName("A");

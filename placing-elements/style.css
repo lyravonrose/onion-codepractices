@@ -117,12 +117,13 @@ footer {
     padding: 5px 5px 5px 15px;
     color: white;
 }
-#overlay {
+.overlay {
     position: fixed;
     height: 100%;
     width: 100%;
     background-color: rgba(230, 140, 155, 0.6);
-    z-index: 3;
+    /* z-index: 3; */
+    visibility: hidden;
 }
 #sidemenu {
     position: fixed;
@@ -134,7 +135,7 @@ footer {
     right: 0px;
     padding: 10px;
     display: block;
-    float: right;
+    /* float: right; */
     z-index: 4;
 }
 #x {
@@ -144,6 +145,9 @@ footer {
     transition-property: transform;
     transition-duration: 3s;
     transform: translateX(0%);
+}
+.overlay_on {
+    visibility: visible;
 }
 
 @media screen and (max-width: 800px) {
